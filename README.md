@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+using: nextjs13, new app feature, stripe api, ecommerse store
+
 First, run the development server:
 
 ```bash
