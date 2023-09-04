@@ -15,17 +15,16 @@ const handlee = Handlee({
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 p-4 sm:py-4 sm:px-6 bg-white border-b border-solid border-blue-500 shadow-md z-99 text-2xl sm:text-3xl md:text-4xl flex justify-between items-center">
+    <header className="sticky top-0 p-4 sm:py-4 sm:px-6 bg-yellow-100 shadow-sm z-99 text-2xl sm:text-3xl md:text-4xl flex justify-between items-center">
       <Link href={"/"} className="flex gap-2 cursor-pointer hover:scale-110">
           <Image
             src="/banana-logo-icon.jpg"
             alt="banana logo"
             width={70}
             height={70}
-            
-            className="w-[3rem] sm:w-[4rem]"
+            className="w-[3rem] sm:w-[4rem] rounded-full"
           />
-        <h1 className={"flex items-center " + handlee.className}>Fruit Shop</h1>
+        <h1 className={"flex items-center tracking-tighter " + handlee.className}>Fruit Shop</h1>
       </Link>
       <FontAwesomeIcon
         icon={faCartShopping}

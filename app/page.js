@@ -16,12 +16,12 @@ export default async function Home() {
   const products = await getStripeProducts()
   console.log(products)
   return (
-    <main className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      {products.map((product, productIndex) => {
-        return (
-          <ProductCard product={product} key={productIndex} />
-        )
-      })}
+    <main className="p-6 flex flex-col gap-6">
+      <div className="max-w-[1000px] w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {products.map((product, productIndex) => {
+          return <ProductCard product={product} key={productIndex} />
+        })}
+      </div>
     </main>
   )
 }

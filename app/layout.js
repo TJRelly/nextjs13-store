@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         className={"min-h-screen flex flex-col relative " + inter.className}
       >
         <Navbar />
-        <div className="flex-1 bg-green-200">{children}</div>
+        <div className="flex-1">{children}</div>
         <Footer />
       </body>
     </html>
