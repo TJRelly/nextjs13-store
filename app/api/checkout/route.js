@@ -19,8 +19,8 @@ export async function POST(req) {
     })
 
     const session = await stripe.checkout.sessions.create({
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/cancel",
+      success_url: "https://nextjs13-store.vercel.app/success",
+      cancel_url: "https://nextjs13-store.vercel.app/cancel",
       line_items: body.lineItems,
       mode: "payment",
     })

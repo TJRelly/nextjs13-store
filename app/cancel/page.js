@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { BiArrowBack } from "react-icons/bi"
 
-export default function SuccessPage() {
+export default function CancelPage() {
     return (
         <div>
             {"We're here for you when you need us!"}
