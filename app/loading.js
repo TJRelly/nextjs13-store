@@ -1,5 +1,5 @@
 export default function Loading() {
     return (
-        <div>Loading...</div>
+        <div>{"We'll be right with you..."}</div>
     )
 }

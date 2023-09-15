@@ -4,11 +4,11 @@ const useCart = create((set, get) => ({
   cart: [],
   product: {},
   openModal: false,
-  openModal: () => {
+  setOpenModal: () => {
     set((state) => {
       return {
         ...state,
-        openModel: !state.openModal,
+        openModal: !state.openModal,
       }
     })
   },
