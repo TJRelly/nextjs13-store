@@ -1,8 +1,8 @@
 "use client"
 export default function Error() {
     return (
-        <div>
-            Something went wrong
+        <div className="p-4">
+            Something went wrong.
         </div>
     )
 }

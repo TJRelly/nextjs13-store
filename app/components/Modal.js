@@ -2,6 +2,7 @@
 
 import React from "react"
 import { createPortal } from "react-dom"
+import { useRouter } from "next/navigation"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import "@fortawesome/fontawesome-svg-core/styles.css"
@@ -12,8 +13,27 @@ export default function Modal() {
   const openModal = useCart((state) => state.openModal)
   const closeModal = useCart((state) => state.setOpenModal)
   const cartItems = useCart((state) => state.cart)
+  const router = useRouter()
 
   React.useEffect(() => setMounted(openModal), [openModal])
+
+  async function checkout() {
+    const lineItems = cartItems.map((cartItem) => {
+      return {
+        price: cartItem.price_id,
+        quantity: 1,
+      }
+    })
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ lineItems }),
+    })
+    const data = await res.json()
+    router.push(data.session.url)
+  }
 
   return mounted
     ? createPortal(
@@ -54,7 +74,9 @@ export default function Modal() {
                 </>
               )}
             </div>
-            <div className="bg-green-700 border border-green-700 text-lg text-white m-4 p-4  tracking-wider grid place-items-center rounded cursor-pointer hover:opacity-60 ">Proceed to Checkout</div>
+            <div onClick={checkout} className="bg-green-700 border border-green-700 text-lg text-white m-4 p-4  tracking-wider grid place-items-center rounded cursor-pointer hover:opacity-60 ">
+              Proceed to Checkout
+            </div>
           </div>
         </div>,
         document.body
